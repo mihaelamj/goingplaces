@@ -95,7 +95,7 @@
     
 }
 
--(void) fetchedData:(NSData *)responseData
+-(void)fetchedData:(NSData *)responseData
 {
     NSError *error;
     NSDictionary* json=[NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];

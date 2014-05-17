@@ -24,6 +24,8 @@
 		A9EFB3051927D1FE000E7F9B /* GooglePlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EFB3041927D1FE000E7F9B /* GooglePlacesViewController.m */; };
 		A9EFB35A1927D90D000E7F9B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB3591927D90D000E7F9B /* MapKit.framework */; };
 		A9EFB35C1927D923000E7F9B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB35B1927D923000E7F9B /* CoreLocation.framework */; };
+		A9EFB35F1927F58B000E7F9B /* GPGooglePlacesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EFB35E1927F58B000E7F9B /* GPGooglePlacesRepository.m */; };
+		A9EFB3621927F75F000E7F9B /* GPGooglePlacesHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EFB3611927F75F000E7F9B /* GPGooglePlacesHTTPClient.m */; };
 		C9BEDDC5A9C945E1941E8463 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBE4868751A4D24860421A3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,10 @@
 		A9EFB3041927D1FE000E7F9B /* GooglePlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GooglePlacesViewController.m; path = ViewControllers/GooglePlacesViewController.m; sourceTree = "<group>"; };
 		A9EFB3591927D90D000E7F9B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A9EFB35B1927D923000E7F9B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A9EFB35D1927F58B000E7F9B /* GPGooglePlacesRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGooglePlacesRepository.h; path = Internals/Repositories/GPGooglePlacesRepository.h; sourceTree = "<group>"; };
+		A9EFB35E1927F58B000E7F9B /* GPGooglePlacesRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGooglePlacesRepository.m; path = Internals/Repositories/GPGooglePlacesRepository.m; sourceTree = "<group>"; };
+		A9EFB3601927F75F000E7F9B /* GPGooglePlacesHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGooglePlacesHTTPClient.h; path = Internals/Networking/GPGooglePlacesHTTPClient.h; sourceTree = "<group>"; };
+		A9EFB3611927F75F000E7F9B /* GPGooglePlacesHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGooglePlacesHTTPClient.m; path = Internals/Networking/GPGooglePlacesHTTPClient.m; sourceTree = "<group>"; };
 		CFBE4868751A4D24860421A3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99B9B7A7E704CECABDC907B /* Pods-GoingPlaces Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoingPlaces Tests.xcconfig"; path = "Pods/Pods-GoingPlaces Tests.xcconfig"; sourceTree = "<group>"; };
 		DF90DC74A0B94F21B3F1E884 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 		A9EFB2FB1927C1AA000E7F9B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A9EFB3601927F75F000E7F9B /* GPGooglePlacesHTTPClient.h */,
+				A9EFB3611927F75F000E7F9B /* GPGooglePlacesHTTPClient.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -274,6 +282,8 @@
 		A9EFB3011927C22D000E7F9B /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				A9EFB35D1927F58B000E7F9B /* GPGooglePlacesRepository.h */,
+				A9EFB35E1927F58B000E7F9B /* GPGooglePlacesRepository.m */,
 			);
 			name = Repositories;
 			sourceTree = "<group>";
@@ -443,6 +453,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9EFB2D41927BC0A000E7F9B /* main.m in Sources */,
+				A9EFB3621927F75F000E7F9B /* GPGooglePlacesHTTPClient.m in Sources */,
+				A9EFB35F1927F58B000E7F9B /* GPGooglePlacesRepository.m in Sources */,
 				A9EFB3051927D1FE000E7F9B /* GooglePlacesViewController.m in Sources */,
 				A9EFB2D21927BBCF000E7F9B /* GPAppDelegate.m in Sources */,
 			);
