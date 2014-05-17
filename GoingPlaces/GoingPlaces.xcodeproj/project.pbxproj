@@ -113,6 +113,7 @@
 				A9EFB2F71927C03F000E7F9B /* ViewControllers */,
 				A9EFB2F81927C057000E7F9B /* Views */,
 				A9EFB2F91927C063000E7F9B /* Models */,
+				A9EFB2FA1927C143000E7F9B /* Internals */,
 				A9EFB2F61927C003000E7F9B /* Resources */,
 				A9EFB2A41927B884000E7F9B /* Supporting Files */,
 			);
@@ -185,6 +186,69 @@
 			children = (
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		A9EFB2FA1927C143000E7F9B /* Internals */ = {
+			isa = PBXGroup;
+			children = (
+				A9EFB2FC1927C1BC000E7F9B /* Config */,
+				A9EFB3001927C20D000E7F9B /* Utilities */,
+				A9EFB2FF1927C1F5000E7F9B /* View Helpers */,
+				A9EFB2FE1927C1E8000E7F9B /* View Factory */,
+				A9EFB2FD1927C1C3000E7F9B /* Persistance */,
+				A9EFB2FB1927C1AA000E7F9B /* Networking */,
+				A9EFB3011927C22D000E7F9B /* Repositories */,
+			);
+			name = Internals;
+			sourceTree = "<group>";
+		};
+		A9EFB2FB1927C1AA000E7F9B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		A9EFB2FC1927C1BC000E7F9B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		A9EFB2FD1927C1C3000E7F9B /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Persistance;
+			sourceTree = "<group>";
+		};
+		A9EFB2FE1927C1E8000E7F9B /* View Factory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Factory";
+			sourceTree = "<group>";
+		};
+		A9EFB2FF1927C1F5000E7F9B /* View Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Helpers";
+			sourceTree = "<group>";
+		};
+		A9EFB3001927C20D000E7F9B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		A9EFB3011927C22D000E7F9B /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
