@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FTGooglePlacesAPI.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-GoingPlaces Tests-Kiwi.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -52,47 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>229B7294242548EA95B9F89F</key>
+		<key>137AA5DF152743BCBE3FD3FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C634A514E014BC89B925BA9</key>
+		<key>146655EB77B64DFD97BD9ABB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65A4E692D2E44711B2B5BC2A</key>
+		<key>160BE64682C64948BFB70DCE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>66AE7B24B82B48869C367506</key>
+		<key>38E155AA608E4A2A9E08D167</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B0CC7F113864E97B6E8E6EA</key>
+		<key>5FB6E7AECEFB454A8B24F8ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6E1F424050744377809B2F73</key>
+		<key>B89DC11E8BC145C89F17E2D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7802C1F35AA04F12B099F17D</key>
+		<key>D0C7C27F0A7E4560AB5444B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8676A37CC6804835BFF37019</key>
+		<key>D5E19E10F19A4CA6ADDE85BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9817D3055D764261AF21FF56</key>
+		<key>DC0265A3669F456D897EF242</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC1F46BD64AC415CB43C1236</key>
 		<dict>
 			<key>primary</key>
 			<true/>

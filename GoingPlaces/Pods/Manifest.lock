@@ -20,6 +20,8 @@ PODS:
   - AFNetworking/UIKit (2.2.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FTGooglePlacesAPI (1.0):
+    - AFNetworking (~> 2.2.0)
   - Kiwi/ARC (2.2.4)
   - Kiwi/NonARC (2.2.4)
   - Kiwi/XCTest (2.2.4):
@@ -35,6 +37,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 2.0)
   - AFNetworking (~> 2.2)
+  - FTGooglePlacesAPI
   - Kiwi/XCTest
   - Masonry (~> 0.4)
   - MBProgressHUD (~> 0.8)
@@ -44,6 +47,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 3d12891eb7cb77b4ad0f0b50fe5d877385bd135d
   AFNetworking: 01aa7c3aa9a200b94943e54072a4373f14b3d219
+  FTGooglePlacesAPI: 0e50d5c5a1c5245529afb864d23d29eee2359811
   Kiwi: d60d7498b640a16f58b01925fc3c8d7c4d809f66
   Masonry: bef482b29f00b33a2da916e1011af85f5d371d66
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622

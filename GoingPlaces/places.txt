@@ -1,0 +1,7 @@
+Key for server apps (with IP locking)
+API key:	
+AIzaSyCU4oAydzave9NI09HZoPWp8uKqcuyL2BQ
+IPs:	
+Any IP allowed
+Activated on:	May 17, 2014 10:09 AM
+Activated by:	 mihaelamj@gmail.com – you
