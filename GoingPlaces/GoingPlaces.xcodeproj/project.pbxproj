@@ -21,6 +21,9 @@
 		A9EFB2EB1927BFA3000E7F9B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A9EFB2E91927BFA3000E7F9B /* InfoPlist.strings */; };
 		A9EFB2ED1927BFA3000E7F9B /* GoingPlaces_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EFB2EC1927BFA3000E7F9B /* GoingPlaces_Tests.m */; };
 		A9EFB2F51927BFFF000E7F9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9EFB2F41927BFFF000E7F9B /* Images.xcassets */; };
+		A9EFB3051927D1FE000E7F9B /* GooglePlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EFB3041927D1FE000E7F9B /* GooglePlacesViewController.m */; };
+		A9EFB35A1927D90D000E7F9B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB3591927D90D000E7F9B /* MapKit.framework */; };
+		A9EFB35C1927D923000E7F9B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB35B1927D923000E7F9B /* CoreLocation.framework */; };
 		C9BEDDC5A9C945E1941E8463 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBE4868751A4D24860421A3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,10 @@
 		A9EFB2EE1927BFA3000E7F9B /* GoingPlaces Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoingPlaces Tests-Prefix.pch"; sourceTree = "<group>"; };
 		A9EFB2F41927BFFF000E7F9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		A9EFB3021927D035000E7F9B /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Keys.h; path = Internals/Config/Keys.h; sourceTree = "<group>"; };
+		A9EFB3031927D1FE000E7F9B /* GooglePlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GooglePlacesViewController.h; path = ViewControllers/GooglePlacesViewController.h; sourceTree = "<group>"; };
+		A9EFB3041927D1FE000E7F9B /* GooglePlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GooglePlacesViewController.m; path = ViewControllers/GooglePlacesViewController.m; sourceTree = "<group>"; };
+		A9EFB3591927D90D000E7F9B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A9EFB35B1927D923000E7F9B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CFBE4868751A4D24860421A3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99B9B7A7E704CECABDC907B /* Pods-GoingPlaces Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoingPlaces Tests.xcconfig"; path = "Pods/Pods-GoingPlaces Tests.xcconfig"; sourceTree = "<group>"; };
 		DF90DC74A0B94F21B3F1E884 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -64,6 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9EFB35C1927D923000E7F9B /* CoreLocation.framework in Frameworks */,
+				A9EFB35A1927D90D000E7F9B /* MapKit.framework in Frameworks */,
 				A9EFB2A01927B884000E7F9B /* CoreGraphics.framework in Frameworks */,
 				A9EFB2A21927B884000E7F9B /* UIKit.framework in Frameworks */,
 				A9EFB29E1927B884000E7F9B /* Foundation.framework in Frameworks */,
@@ -109,6 +118,8 @@
 		A9EFB29C1927B884000E7F9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9EFB35B1927D923000E7F9B /* CoreLocation.framework */,
+				A9EFB3591927D90D000E7F9B /* MapKit.framework */,
 				A9EFB29D1927B884000E7F9B /* Foundation.framework */,
 				A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */,
 				A9EFB2A11927B884000E7F9B /* UIKit.framework */,
@@ -183,6 +194,8 @@
 		A9EFB2F71927C03F000E7F9B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A9EFB3031927D1FE000E7F9B /* GooglePlacesViewController.h */,
+				A9EFB3041927D1FE000E7F9B /* GooglePlacesViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -430,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9EFB2D41927BC0A000E7F9B /* main.m in Sources */,
+				A9EFB3051927D1FE000E7F9B /* GooglePlacesViewController.m in Sources */,
 				A9EFB2D21927BBCF000E7F9B /* GPAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
