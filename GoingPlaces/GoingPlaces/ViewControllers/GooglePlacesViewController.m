@@ -78,7 +78,7 @@
         [self centerMap:self.currentLocation distanceMeters:self.distanceInMeters];
 }
 
--(void)queryGooglePlaces:(NSString *)googleType
+-(void)fetchGooglePlaces
 {
     
     NSString *url=[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%i&sensor=true&key=%@", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude, self.distanceInMeters, GOOGLE_API_KEY];
@@ -119,7 +119,7 @@
     [self.locationManager stopUpdatingLocation];
         
     //@TODO: find and show Google places
-    [self queryGooglePlaces:nil];
+    [self fetchGooglePlaces];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
