@@ -17,4 +17,6 @@
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSArray *imageLinks;
 
++ (NSArray *)googlePlacesWithResponseArray:(NSArray *)responseArray;
+
 @end

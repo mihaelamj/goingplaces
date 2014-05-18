@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-
+#import <CoreLocation/CoreLocation.h>
 
 @interface GPGooglePlacesRepository : NSObject
+
++ (void)googlePlacesWithCoordinate:(CLLocationCoordinate2D)coordinate distanceInMeters:(NSInteger)distanceInMeters returnBlock:(void (^)(NSArray *googlePlacesArray, NSError *error))returnBlock;
 
 @end

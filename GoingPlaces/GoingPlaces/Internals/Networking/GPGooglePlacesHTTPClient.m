@@ -76,9 +76,14 @@ NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/ap
     
     //perform request
     [self GET:requestPath parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *responseDictionary) {
-
-        //fetch results array
-        NSArray *responseArrayResult = [responseDictionary objectForKey:@"results"];
+        
+         //fetch results array
+        NSArray *responseArrayResult;
+        id results =  [responseDictionary objectForKey:@"results"];
+        
+        //check if results is array
+        if ([results isKindOfClass:[NSArray class]])
+            responseArrayResult = (NSArray *)results;
 
         if (returnBlock)
             returnBlock(responseArrayResult, nil);

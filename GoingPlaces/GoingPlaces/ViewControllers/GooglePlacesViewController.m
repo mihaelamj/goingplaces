@@ -14,8 +14,8 @@
 //location manager
 #import <CoreLocation/CoreLocation.h>
 
-//@TEST:
-#import "GPGooglePlacesHTTPClient.h"
+//fetch repositry
+#import "GPGooglePlacesRepository.h"
 
 //Google key
 #import "Keys.h"
@@ -95,15 +95,15 @@
     //stop locating
     [self.locationManager stopUpdatingLocation];
     
-    //@TEST:
     
-    [[GPGooglePlacesHTTPClient client] googlePlacesWithLongitude:self.currentLocation.coordinate.longitude latitude:self.currentLocation.coordinate.latitude distanceInMeters:self.distanceInMeters withReturnBlock:^(NSArray *responseArray, NSError *error) {
+    //fetch Google Places
+    [GPGooglePlacesRepository googlePlacesWithCoordinate:self.currentLocation.coordinate distanceInMeters:self.distanceInMeters returnBlock:^(NSArray *googlePlacesArray, NSError *error) {
         
-        FWLog(@"got locations: %@", responseArray);
+        FWLog(@"got Google Places: %@", googlePlacesArray);
+        
+        //@TODO: show Google places
         
     }];
-    
-    //@TODO: show Google places
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
