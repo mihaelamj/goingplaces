@@ -14,6 +14,9 @@
 //location manager
 #import <CoreLocation/CoreLocation.h>
 
+//@TEST:
+#import "GPGooglePlacesHTTPClient.h"
+
 //Google key
 #import "Keys.h"
 
@@ -78,32 +81,6 @@
         [self centerMap:self.currentLocation distanceMeters:self.distanceInMeters];
 }
 
--(void)fetchGooglePlaces
-{
-    
-    NSString *url=[NSString stringWithFormat:@"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%i&sensor=true&key=%@", self.currentLocation.coordinate.latitude, self.currentLocation.coordinate.longitude, self.distanceInMeters, GOOGLE_API_KEY];
-    
-    NSURL *googleRequestURL=[NSURL URLWithString:url];
-    
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
-        
-        NSData *data=[NSData dataWithContentsOfURL: googleRequestURL];
-        [self performSelectorOnMainThread:@selector(fetchedData:) withObject:data waitUntilDone:YES];
-        
-    });
-    
-}
-
--(void)fetchedData:(NSData *)responseData
-{
-    NSError *error;
-    NSDictionary* json=[NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
-    
-    NSArray *places=[json objectForKey:@"results"];
-    FWLog(@"got locations: %@", places);
-}
-
 #pragma mark -
 #pragma mark CLLocationManagerDelegate delegate
 
@@ -117,9 +94,16 @@
         
     //stop locating
     [self.locationManager stopUpdatingLocation];
+    
+    //@TEST:
+    
+    [[GPGooglePlacesHTTPClient client] googlePlacesWithLongitude:self.currentLocation.coordinate.longitude latitude:self.currentLocation.coordinate.latitude distanceInMeters:self.distanceInMeters withReturnBlock:^(NSArray *responseArray, NSError *error) {
         
-    //@TODO: find and show Google places
-    [self fetchGooglePlaces];
+        FWLog(@"got locations: %@", responseArray);
+        
+    }];
+    
+    //@TODO: show Google places
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error

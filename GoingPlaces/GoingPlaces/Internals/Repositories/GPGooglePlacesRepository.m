@@ -8,7 +8,7 @@
 
 #import "GPGooglePlacesRepository.h"
 
-#import <FTGooglePlacesAPI/FTGooglePlacesAPI.h>
+#import "GooglePlace.h"
 
 @implementation GPGooglePlacesRepository
 

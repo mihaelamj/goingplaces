@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8DE96029900743D49FA79FBF /* libPods-GoingPlaces Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7470BC2C5F14CC6AA59B945 /* libPods-GoingPlaces Tests.a */; };
+		A905FCDE1928B3B0009113E1 /* GooglePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FCDD1928B3B0009113E1 /* GooglePlace.m */; };
 		A9EFB29E1927B884000E7F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB29D1927B884000E7F9B /* Foundation.framework */; };
 		A9EFB2A01927B884000E7F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */; };
 		A9EFB2A21927B884000E7F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB2A11927B884000E7F9B /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		A7470BC2C5F14CC6AA59B945 /* libPods-GoingPlaces Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GoingPlaces Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A905FCDC1928B3B0009113E1 /* GooglePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GooglePlace.h; path = Models/GooglePlace.h; sourceTree = "<group>"; };
+		A905FCDD1928B3B0009113E1 /* GooglePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GooglePlace.m; path = Models/GooglePlace.m; sourceTree = "<group>"; };
 		A9EFB29A1927B884000E7F9B /* GoingPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoingPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EFB29D1927B884000E7F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -216,6 +219,8 @@
 		A9EFB2F91927C063000E7F9B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A905FCDC1928B3B0009113E1 /* GooglePlace.h */,
+				A905FCDD1928B3B0009113E1 /* GooglePlace.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 			files = (
 				A9EFB2D41927BC0A000E7F9B /* main.m in Sources */,
 				A9EFB3621927F75F000E7F9B /* GPGooglePlacesHTTPClient.m in Sources */,
+				A905FCDE1928B3B0009113E1 /* GooglePlace.m in Sources */,
 				A9EFB35F1927F58B000E7F9B /* GPGooglePlacesRepository.m in Sources */,
 				A9EFB3051927D1FE000E7F9B /* GooglePlacesViewController.m in Sources */,
 				A9EFB2D21927BBCF000E7F9B /* GPAppDelegate.m in Sources */,

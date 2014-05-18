@@ -11,4 +11,8 @@
 
 @interface GPGooglePlacesHTTPClient : AFHTTPSessionManager
 
++ (instancetype)client;
+
+- (void)googlePlacesWithLongitude:(CGFloat)longitude latitude:(CGFloat)latitude distanceInMeters:(NSInteger)distanceInMeters withReturnBlock:(void (^)(NSArray *responseArray, NSError *error))returnBlock;
+
 @end

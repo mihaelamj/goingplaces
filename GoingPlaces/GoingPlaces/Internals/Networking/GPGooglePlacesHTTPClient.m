@@ -11,6 +11,8 @@
 #import "Keys.h"
 
 NSString * const kGooglePlacesAPIBaseURL = @"https://maps.googleapis.com/maps/api/place/";
+NSString * const kGooglePlacesRequestNearby = @"nearbysearch";
+
 NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%i&sensor=true&key=%@";
 
 @interface GPGooglePlacesHTTPClient ()
@@ -57,10 +59,37 @@ NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/ap
 #pragma mark -
 #pragma mark Public fetch Methods
 
-- (void)googlePlacesWithLongitude:(CGFloat)longitude latitude:(CGFloat)latitude distanceInMeters:(NSInteger)distanceInMeters
+- (void)googlePlacesWithLongitude:(CGFloat)longitude latitude:(CGFloat)latitude distanceInMeters:(NSInteger)distanceInMeters withReturnBlock:(void (^)(NSArray *responseArray, NSError *error))returnBlock
 {
-    NSString *fullUrl = [NSString stringWithFormat:kGooglePlacesAPIFullURL, latitude, longitude, distanceInMeters, GOOGLE_API_KEY];
-//    self. = fullUrl;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    //set API key and sesndor
+    params[@"key"] = self.apiKey;
+    params[@"sensor"] = @"true";
+    
+    //set required parameters
+    params[@"location"] = [NSString stringWithFormat:@"%.7f,%.7f", latitude, longitude];
+    params[@"radius"] = [NSString stringWithFormat:@"%ld", (unsigned long)distanceInMeters];
+    
+    //create relative request path for nearby search, base URL is already configured in AFNetworking HTTP manager
+    NSString *requestPath = [NSString stringWithFormat:@"%@/json", kGooglePlacesRequestNearby];
+    
+    //perform request
+    [self GET:requestPath parameters:params success:^(NSURLSessionDataTask *task, NSDictionary *responseDictionary) {
+
+        //fetch results array
+        NSArray *responseArrayResult = [responseDictionary objectForKey:@"results"];
+
+        if (returnBlock)
+            returnBlock(responseArrayResult, nil);
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        FWLog(@"error: %@", error);
+        if (returnBlock)
+            returnBlock(nil, error);
+        
+    }];
     
 }
 
