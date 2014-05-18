@@ -12,7 +12,7 @@
 #import "GPGooglePlacesHTTPClient.h"
 
 //model
-#import "GooglePlace.h"
+#import "Place.h"
 
 @interface GPGooglePlacesRepository ()
 
@@ -34,7 +34,7 @@
         } else {
             
             //make GooglePlace objects from returned array
-            NSArray *googlePlaces = [GooglePlace googlePlacesWithResponseArray:responseArray];
+            NSArray *googlePlaces = [Place googlePlacesWithResponseArray:responseArray];
             returnBlock(googlePlaces, nil);
             
         }

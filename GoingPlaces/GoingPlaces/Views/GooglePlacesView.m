@@ -99,7 +99,8 @@
 {
     //check if we have item 
     if (self.currentLocation) {
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, distanceMeters, distanceMeters);
+        //make region, 2x distance
+        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, distanceMeters*2, distanceMeters*2);
         //set region on map
         [self.mapView setRegion:region animated:YES];
     }
@@ -199,6 +200,7 @@
 {
     _distanceInMeters = distanceInMeters;
     
+    //update info label text
     [self updateDistanceInfoLabel:_distanceInMeters];
     
     //center map

@@ -15,7 +15,7 @@
 //#import "GooglePlacesViewControllerOld.h"
 
 //GooglePlaces VC - detail
-#import "GooglePlacesViewController.h"
+#import "PlacesOnMapViewController.h"
 
 @interface StartViewController ()
 
@@ -61,7 +61,7 @@
 - (void)startButtonClicked
 {
     //push detail VC
-    GooglePlacesViewController *googlePlacesViewController = [[GooglePlacesViewController alloc] init];
+    PlacesOnMapViewController *googlePlacesViewController = [[PlacesOnMapViewController alloc] init];
     
 //    GooglePlacesViewControllerOld *googlePlacesViewController = [[GooglePlacesViewControllerOld alloc] init];
     [self.navigationController pushViewController:googlePlacesViewController animated:YES];

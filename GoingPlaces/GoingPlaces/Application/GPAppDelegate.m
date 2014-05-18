@@ -8,9 +8,6 @@
 
 #import "GPAppDelegate.h"
 
-//@TEST:
-#import "GooglePlacesViewControllerOld.h"
-
 //first view controller
 #import "StartViewController.h"
 

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Token d.o.o. All rights reserved.
 //
 
-#import "GooglePlace.h"
+#import "Place.h"
 
-@implementation GooglePlace
+@implementation Place
 
 + (instancetype)googlePlaceWithResponseDictionary:(NSDictionary *)responseDictionary
 {
-    GooglePlace *googlePlace = [[GooglePlace alloc] init];
+    Place *googlePlace = [[Place alloc] init];
     [googlePlace setValuesForKeysWithDictionary:responseDictionary];
     return googlePlace;
 }
@@ -57,7 +57,7 @@
      for (NSDictionary *googlePlaceDictionary in responseArray) {
          
          //create object
-         GooglePlace *googlePlace = [GooglePlace googlePlaceWithResponseDictionary:googlePlaceDictionary];
+         Place *googlePlace = [Place googlePlaceWithResponseDictionary:googlePlaceDictionary];
          
          //add it to result array
          [googlePlacesArray addObject:googlePlace];

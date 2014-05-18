@@ -9,6 +9,6 @@
 //base VC
 #import "GPBaseViewController.h"
 
-@interface GooglePlacesViewController : GPBaseViewController
+@interface PlacesOnMapViewController : GPBaseViewController
 
 @end

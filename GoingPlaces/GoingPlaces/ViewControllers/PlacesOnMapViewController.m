@@ -1,12 +1,12 @@
 //
-//  GooglePlacesViewController.m
+//  PlacesOnMapViewController.m
 //  GoingPlaces
 //
 //  Created by Mihaela Mihaljević Jakić on 18/05/14.
 //  Copyright (c) 2014 Token d.o.o. All rights reserved.
 //
 
-#import "GooglePlacesViewController.h"
+#import "PlacesOnMapViewController.h"
 
 //main view
 #import "GooglePlacesView.h"
@@ -17,15 +17,20 @@
 //GooglePlaces (fetch) repositry
 #import "GPGooglePlacesRepository.h"
 
-@interface GooglePlacesViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
+//Annotation view
+#import "GPMapAnnotation.h"
+
+@interface PlacesOnMapViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, strong) GooglePlacesView *mainView;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
+@property (nonatomic, strong) NSArray *currentPlaces; //of Place
+
 @end
 
-@implementation GooglePlacesViewController
+@implementation PlacesOnMapViewController
 
 //maybe remove
 - (id)init
@@ -82,7 +87,28 @@
 }
 
 #pragma mark -
-#pragma mark CLLocationManagerDelegate delegate
+#pragma mark Private Methods
+
+- (void)drawPlacesOnMap
+{
+    //delete old annotations
+    for (id<MKAnnotation> annotation in self.mainView.mapView.annotations) {
+        [self.mainView.mapView removeAnnotation:annotation];
+    }
+    
+    //draw new annotations
+    for (Place *place in self.currentPlaces) {
+        
+        //create annotation view
+        GPMapAnnotation *mapAnnotation = [[GPMapAnnotation alloc] initWithPlace:place];
+        
+        //add it to map view
+        [self.mainView.mapView addAnnotation:mapAnnotation];
+    }
+}
+
+#pragma mark -
+#pragma mark CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
@@ -99,10 +125,39 @@
     //fetch Google Places
     [GPGooglePlacesRepository googlePlacesWithCoordinate:self.mainView.currentLocation.coordinate distanceInMeters:self.mainView.distanceInMeters returnBlock:^(NSArray *googlePlacesArray, NSError *error) {
         
-        FWLog(@"got Google Places: %@", googlePlacesArray);
-        
-        //@TODO: show Google places
+        //set and show fetched Google places
+        self.currentPlaces = googlePlacesArray;
     }];
+}
+
+#pragma mark -
+#pragma mark MKMapViewDelegate
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MKAnnotationView *annotationView;
+    
+    if ([annotation isKindOfClass:[GPMapAnnotation class]]) {
+        
+        //tyr to deque annotation
+        annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:[GPMapAnnotation annotiationIdentifier]];
+        
+        //init new annotation if no available annotations
+        if (annotationView == nil) {
+            annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:[GPMapAnnotation annotiationIdentifier]];
+            
+            //display extra information in a callout bubble
+            annotationView.canShowCallout = YES;
+            
+            //set cutom pin image
+            annotationView.image = [UIImage imageNamed:@"red_pin_bigger"];
+            
+        } else {
+            annotationView.annotation = annotation;
+        }
+    }
+    
+    return annotationView;
 }
 
 #pragma mark -
@@ -119,6 +174,12 @@
     }
     
     return _locationManager;
+}
+
+- (void)setCurrentPlaces:(NSArray *)currentPlaces
+{
+    _currentPlaces = currentPlaces;
+    [self drawPlacesOnMap];
 }
 
 
