@@ -59,6 +59,7 @@
 		A905FCE91928C754009113E1 /* GPBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPBaseViewController.m; path = ViewControllers/GPBaseViewController.m; sourceTree = "<group>"; };
 		A905FCEB1928D680009113E1 /* GooglePlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GooglePlacesViewController.h; path = ViewControllers/GooglePlacesViewController.h; sourceTree = "<group>"; };
 		A905FCEC1928D680009113E1 /* GooglePlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GooglePlacesViewController.m; path = ViewControllers/GooglePlacesViewController.m; sourceTree = "<group>"; };
+		A905FCEE1928E0AD009113E1 /* Styles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Styles.h; path = Internals/Config/Styles.h; sourceTree = "<group>"; };
 		A9EFB29A1927B884000E7F9B /* GoingPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoingPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EFB29D1927B884000E7F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -277,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				A9EFB3021927D035000E7F9B /* Keys.h */,
+				A905FCEE1928E0AD009113E1 /* Styles.h */,
 			);
 			name = Config;
 			sourceTree = "<group>";

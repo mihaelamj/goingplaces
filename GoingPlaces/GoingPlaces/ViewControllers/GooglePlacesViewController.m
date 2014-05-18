@@ -45,8 +45,16 @@
     self.mainView = [[GooglePlacesView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     self.view = self.mainView;
     
+    //set distance label caption
+    self.mainView.distanceLabel.text = @"Distance:";
+    
     //set self as map delegate
     self.mainView.mapView.delegate = self;
+    
+    //set distance slider properties and action
+    self.mainView.distanceSlider.minimumValue = 1000;
+    self.mainView.distanceSlider.maximumValue = 50000;
+    [self.mainView.distanceSlider addTarget:self action:@selector(sliderFinishedChanging:) forControlEvents:UIControlEventTouchUpInside];
     
     //set self as location manager delegate
     self.locationManager.delegate = self;
@@ -58,6 +66,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+
+#pragma mark -
+#pragma mark View Actions
+
+- (void)sliderFinishedChanging:(UISlider *)sender
+{
+    //set new distance
+    self.mainView.distanceInMeters = ceil(sender.value);
+    
+    //new search - start location manager
+    [self.locationManager startUpdatingLocation];
 }
 
 #pragma mark -
