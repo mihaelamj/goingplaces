@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+//model
+#import "PlaceImage.h"
+
 @interface Place : NSObject
 
 @property (nonatomic, strong) NSString *identifier;
@@ -15,7 +18,9 @@
 @property (nonatomic, strong) NSString *address;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *latitude;
-@property (nonatomic, strong) NSArray *imageLinks;
+
+//images are added by user, and not with repository method
+@property (nonatomic, strong) NSArray *images; //of PlaceImage
 
 /**
  *  Makes array of Place objects from Google Plases API response

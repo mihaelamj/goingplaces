@@ -8,19 +8,58 @@
 
 #import "PlaceDetailViewController.h"
 
+//main view
+#import "PlaceDetailView.h"
+
+//table view cell
+#import "PlaceImageTableViewCell.h"
+
+//place images data source
+#import "PlaceImagesDataSource.h"
+
+
 @interface PlaceDetailViewController ()
+
+//view
+@property (nonatomic, strong) PlaceDetailView *mainView;
+
+//objects
+@property (nonatomic, strong) Place *place;
+@property (nonatomic, strong) PlaceImagesDataSource *placeImagesDataSource;
 
 @end
 
 @implementation PlaceDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+#pragma mark -
+#pragma mark Init
+
+- (instancetype)initWithPlace:(Place *)place
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super init];
     if (self) {
-        // Custom initialization
+        _place = place;
     }
     return self;
+}
+
+#pragma mark -
+#pragma mark View Lifecycle
+
+- (void)loadView
+{
+    //set title
+    self.title = self.place.name;
+    
+    //create main view
+    self.mainView = [[PlaceDetailView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    self.view = self.mainView;
+    
+    //register cell class
+    [self.mainView.tableView registerClass:[PlaceImageTableViewCell class] forCellReuseIdentifier:[PlaceImageTableViewCell reusableIdentifier]];
+    
+    //table view data source
+    self.mainView.tableView.dataSource = self.placeImagesDataSource;
 }
 
 - (void)viewDidLoad
@@ -29,21 +68,16 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark -
+#pragma mark Private Properties
+
+- (PlaceImagesDataSource *)placeImagesDataSource
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (!_placeImagesDataSource) {
+        _placeImagesDataSource = [[PlaceImagesDataSource alloc] initWithPlace:self.place];
+    }
+    return _placeImagesDataSource;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

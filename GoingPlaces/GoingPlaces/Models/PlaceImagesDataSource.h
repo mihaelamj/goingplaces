@@ -1,17 +1,17 @@
 //
-//  PlaceDetailViewController.h
+//  PlaceImagesDataSource.h
 //  GoingPlaces
 //
 //  Created by Mihaela Mihaljević Jakić on 18/05/14.
 //  Copyright (c) 2014 Token d.o.o. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //model
 #import "Place.h"
 
-@interface PlaceDetailViewController : UIViewController
+@interface PlaceImagesDataSource : NSObject<UITableViewDataSource>
 
 - (instancetype)initWithPlace:(Place *)place;
 

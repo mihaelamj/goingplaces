@@ -1,5 +1,5 @@
 //
-//  GooglePlacesView.h
+//  PlacesOnMapView.h
 //  GoingPlaces
 //
 //  Created by Mihaela Mihaljević Jakić on 18/05/14.
@@ -11,7 +11,7 @@
 //map view
 #import <MapKit/MapKit.h>
 
-@interface GooglePlacesView : UIView
+@interface PlacesOnMapView : UIView
 
 //views
 @property (nonatomic, strong) MKMapView *mapView;

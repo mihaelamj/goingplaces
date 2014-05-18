@@ -1,18 +1,18 @@
 //
-//  GooglePlacesView.m
+//  PlacesOnMapView.m
 //  GoingPlaces
 //
 //  Created by Mihaela Mihaljević Jakić on 18/05/14.
 //  Copyright (c) 2014 Token d.o.o. All rights reserved.
 //
 
-#import "GooglePlacesView.h"
+#import "PlacesOnMapView.h"
 
 //Auto Layout
 #import <Masonry/Masonry.h>
 
-//styles
-#import "Styles.h"
+//UI Factory
+#import "UILabel+Style.h"
 
 //sizes and offsets
 #define kLeftRightOffset 10
@@ -21,13 +21,13 @@
 #define kSmallLabelHeight 10
 #define kSlallLabelTopOffset 2
 
-@interface GooglePlacesView ()
+@interface PlacesOnMapView ()
 
 @property (nonatomic, strong) UILabel *distanceInfoLabel;
 
 @end
 
-@implementation GooglePlacesView
+@implementation PlacesOnMapView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -139,13 +139,7 @@
 - (UILabel *)distanceLabel
 {
     if (!_distanceLabel) {
-        _distanceLabel = [[UILabel alloc] init];
-        
-        //style label
-        _distanceLabel.backgroundColor = [UIColor clearColor];
-        _distanceLabel.font = kNormalRegularFont;
-        _distanceLabel.textColor = kDarkGrayColor;
-        _distanceLabel.textAlignment = NSTextAlignmentLeft;
+        _distanceLabel = [UILabel labelWithStyle:LabelStyleDistance];
         
         //prepare for Auto Layout
         _distanceLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -170,20 +164,13 @@
 - (UILabel *)distanceInfoLabel
 {
     if (!_distanceInfoLabel) {
-        _distanceInfoLabel = [[UILabel alloc] init];
-        
-        //style label
-        _distanceInfoLabel.backgroundColor = [UIColor clearColor];
-        _distanceInfoLabel.font = kSmallRegularFont;
-        _distanceInfoLabel.textColor = kMediumGrayColor;
-        _distanceInfoLabel.textAlignment = NSTextAlignmentLeft;
-        
+        _distanceInfoLabel = [UILabel labelWithStyle:LabelStyleSmallDistance];
+
         //prepare for Auto Layout
         _distanceInfoLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _distanceInfoLabel;
 }
-
 
 #pragma mark -
 #pragma mark Private Properties

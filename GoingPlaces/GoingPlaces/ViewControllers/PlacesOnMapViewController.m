@@ -9,7 +9,7 @@
 #import "PlacesOnMapViewController.h"
 
 //main view
-#import "GooglePlacesView.h"
+#import "PlacesOnMapView.h"
 
 //location manager
 #import <CoreLocation/CoreLocation.h>
@@ -23,9 +23,12 @@
 //Annotation view
 #import "GPMapAnnotation.h"
 
+//detail VC - edit Place object
+#import "PlaceDetailViewController.h"
+
 @interface PlacesOnMapViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (nonatomic, strong) GooglePlacesView *mainView;
+@property (nonatomic, strong) PlacesOnMapView *mainView;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
@@ -50,7 +53,7 @@
 - (void)loadView
 {
     //create main view
-    self.mainView = [[GooglePlacesView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    self.mainView = [[PlacesOnMapView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
     self.view = self.mainView;
     
     //set distance label caption
@@ -192,7 +195,10 @@
     //deselct annotation
     [mapView deselectAnnotation:view.annotation animated:NO];
     
-    //@TODO: show detail view controller
+    //push detail VC
+    PlaceDetailViewController *placeViewController = [[PlaceDetailViewController alloc] initWithPlace:place];
+    [self.navigationController pushViewController:placeViewController animated:YES];
+    
 }
 
 #pragma mark -

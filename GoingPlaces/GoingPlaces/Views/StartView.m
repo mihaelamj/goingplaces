@@ -14,6 +14,8 @@
 //styles
 #import "Styles.h"
 
+#import "UIButton+Style.h"
+
 //sizes
 #define kButtonWidthHeight 240
 
@@ -54,18 +56,7 @@
 - (UIButton *)startButton
 {
     if (!_startButton) {
-        _startButton = [[UIButton alloc] init];
-        
-        //create button
-        _startButton= [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        //prepare for Auto Layout
-        _startButton.translatesAutoresizingMaskIntoConstraints = NO;
-        
-        //style button
-        _startButton.backgroundColor = kMarineBlueColor;
-        _startButton.titleLabel.font = kBigBoldFont;
-        _startButton.titleLabel.textColor = kDarkGrayColor;
+        _startButton = [UIButton buttonWithStyle:ButtonStyleStart];
         
         //round frame
         //half of the width/height to make a circle
@@ -74,6 +65,9 @@
         //set border color and width
         _startButton.layer.borderColor = kDarkGrayColor.CGColor;
         _startButton.layer.borderWidth = 2.0f;
+        
+        //prepare for Auto Layout
+        _startButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _startButton;
 }
