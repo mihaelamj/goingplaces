@@ -163,8 +163,11 @@
             //display extra information in a callout bubble
             annotationView.canShowCallout = YES;
             
-            //set cutom pin image
+            //set custom pin image
             annotationView.image = [UIImage imageNamed:@"red_pin_bigger"];
+            
+            //add accessory button view (i)
+            annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
             
         } else {
             annotationView.annotation = annotation;
@@ -172,6 +175,24 @@
     }
     
     return annotationView;
+}
+
+//-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+//{
+//    Place *place = [(GPMapAnnotation *)view.annotation place];
+//    FWLog(@"selected annotation for place: %@", place);
+//}
+
+//called when user clicks on (i) button
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    Place *place = [(GPMapAnnotation *)view.annotation place];
+    FWLog(@"clicked i button on annotation for place: %@", place);
+    
+    //deselct annotation
+    [mapView deselectAnnotation:view.annotation animated:NO];
+    
+    //@TODO: show detail view controller
 }
 
 #pragma mark -
@@ -186,13 +207,14 @@
         _locationManager.distanceFilter = kCLDistanceFilterNone;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     }
-    
     return _locationManager;
 }
 
 - (void)setCurrentPlaces:(NSArray *)currentPlaces
 {
     _currentPlaces = currentPlaces;
+    
+    //re-draw places on the map
     [self drawPlacesOnMap];
 }
 

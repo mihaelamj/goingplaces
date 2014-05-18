@@ -11,8 +11,21 @@
 
 @interface GPGooglePlacesHTTPClient : AFHTTPSessionManager
 
+/**
+ *  Singleton method
+ *
+ *  @return GPGooglePlacesHTTPClient instance
+ */
 + (instancetype)client;
 
+/**
+ *  Method for fetching Google Nearby Places
+ *
+ *  @param longitude        longitude
+ *  @param latitude         latitude
+ *  @param distanceInMeters radius of search
+ *  @param returnBlock      block with respose array holding Google Places dictionaries amd/or error
+ */
 - (void)googlePlacesWithLongitude:(CGFloat)longitude latitude:(CGFloat)latitude distanceInMeters:(NSInteger)distanceInMeters withReturnBlock:(void (^)(NSArray *responseArray, NSError *error))returnBlock;
 
 @end

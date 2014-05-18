@@ -11,10 +11,7 @@
 //main view
 #import "StartView.h"
 
-//@TEST:
-//#import "GooglePlacesViewControllerOld.h"
-
-//GooglePlaces VC - detail
+//Places VC - detail
 #import "PlacesOnMapViewController.h"
 
 @interface StartViewController ()
@@ -61,10 +58,8 @@
 - (void)startButtonClicked
 {
     //push detail VC
-    PlacesOnMapViewController *googlePlacesViewController = [[PlacesOnMapViewController alloc] init];
-    
-//    GooglePlacesViewControllerOld *googlePlacesViewController = [[GooglePlacesViewControllerOld alloc] init];
-    [self.navigationController pushViewController:googlePlacesViewController animated:YES];
+    PlacesOnMapViewController *placesViewController = [[PlacesOnMapViewController alloc] init];
+    [self.navigationController pushViewController:placesViewController animated:YES];
 }
 
 

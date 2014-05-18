@@ -15,6 +15,8 @@
 		A905FCEA1928C754009113E1 /* GPBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FCE91928C754009113E1 /* GPBaseViewController.m */; };
 		A905FCED1928D680009113E1 /* PlacesOnMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FCEC1928D680009113E1 /* PlacesOnMapViewController.m */; };
 		A905FCF11928F6BD009113E1 /* GPMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FCF01928F6BD009113E1 /* GPMapAnnotation.m */; };
+		A905FCF419291596009113E1 /* PlaceDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FCF319291596009113E1 /* PlaceDetailView.m */; };
+		A905FCF7192915B8009113E1 /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FCF6192915B8009113E1 /* PlaceDetailViewController.m */; };
 		A9EFB29E1927B884000E7F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB29D1927B884000E7F9B /* Foundation.framework */; };
 		A9EFB2A01927B884000E7F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */; };
 		A9EFB2A21927B884000E7F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB2A11927B884000E7F9B /* UIKit.framework */; };
@@ -62,6 +64,10 @@
 		A905FCEE1928E0AD009113E1 /* Styles.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Styles.h; path = Internals/Config/Styles.h; sourceTree = "<group>"; };
 		A905FCEF1928F6BD009113E1 /* GPMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPMapAnnotation.h; path = "Internals/View Helpers/GPMapAnnotation.h"; sourceTree = "<group>"; };
 		A905FCF01928F6BD009113E1 /* GPMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPMapAnnotation.m; path = "Internals/View Helpers/GPMapAnnotation.m"; sourceTree = "<group>"; };
+		A905FCF219291596009113E1 /* PlaceDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceDetailView.h; path = Views/PlaceDetailView.h; sourceTree = "<group>"; };
+		A905FCF319291596009113E1 /* PlaceDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceDetailView.m; path = Views/PlaceDetailView.m; sourceTree = "<group>"; };
+		A905FCF5192915B8009113E1 /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlaceDetailViewController.h; path = ViewControllers/PlaceDetailViewController.h; sourceTree = "<group>"; };
+		A905FCF6192915B8009113E1 /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlaceDetailViewController.m; path = ViewControllers/PlaceDetailViewController.m; sourceTree = "<group>"; };
 		A9EFB29A1927B884000E7F9B /* GoingPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoingPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EFB29D1927B884000E7F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -225,6 +231,8 @@
 				A905FCE31928C612009113E1 /* StartViewController.m */,
 				A905FCEB1928D680009113E1 /* PlacesOnMapViewController.h */,
 				A905FCEC1928D680009113E1 /* PlacesOnMapViewController.m */,
+				A905FCF5192915B8009113E1 /* PlaceDetailViewController.h */,
+				A905FCF6192915B8009113E1 /* PlaceDetailViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -236,6 +244,8 @@
 				A905FCE61928C6A9009113E1 /* StartView.m */,
 				A905FCDF1928C3C8009113E1 /* GooglePlacesView.h */,
 				A905FCE01928C3C8009113E1 /* GooglePlacesView.m */,
+				A905FCF219291596009113E1 /* PlaceDetailView.h */,
+				A905FCF319291596009113E1 /* PlaceDetailView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -487,12 +497,14 @@
 				A9EFB2D41927BC0A000E7F9B /* main.m in Sources */,
 				A9EFB3621927F75F000E7F9B /* GPGooglePlacesHTTPClient.m in Sources */,
 				A905FCDE1928B3B0009113E1 /* Place.m in Sources */,
+				A905FCF419291596009113E1 /* PlaceDetailView.m in Sources */,
 				A9EFB35F1927F58B000E7F9B /* GPGooglePlacesRepository.m in Sources */,
 				A905FCF11928F6BD009113E1 /* GPMapAnnotation.m in Sources */,
 				A905FCE71928C6A9009113E1 /* StartView.m in Sources */,
 				A905FCED1928D680009113E1 /* PlacesOnMapViewController.m in Sources */,
 				A905FCEA1928C754009113E1 /* GPBaseViewController.m in Sources */,
 				A905FCE41928C612009113E1 /* StartViewController.m in Sources */,
+				A905FCF7192915B8009113E1 /* PlaceDetailViewController.m in Sources */,
 				A905FCE11928C3C8009113E1 /* GooglePlacesView.m in Sources */,
 				A9EFB2D21927BBCF000E7F9B /* GPAppDelegate.m in Sources */,
 			);

@@ -28,18 +28,16 @@
     [httpClient googlePlacesWithLongitude:coordinate.longitude latitude:coordinate.latitude distanceInMeters:distanceInMeters withReturnBlock:^(NSArray *responseArray, NSError *error) {
         
         if (error) {
-            
             returnBlock(nil, error);
             
         } else {
-            
             //make GooglePlace objects from returned array
             NSArray *googlePlaces = [Place googlePlacesWithResponseArray:responseArray];
-            returnBlock(googlePlaces, nil);
             
+            //return block with results
+            returnBlock(googlePlaces, nil);
         }
     }];
-
 }
 
 @end
