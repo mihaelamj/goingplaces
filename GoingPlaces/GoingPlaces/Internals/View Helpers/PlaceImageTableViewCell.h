@@ -17,4 +17,10 @@
 
 - (void)customize:(PlaceImage *)placeImage;
 
++ (NSInteger)suggestedHeight;
+
+@property (nonatomic, strong) UILabel *imageNameLabel;
+
+@property (nonatomic, strong) UIButton *sendImageButton;
+
 @end

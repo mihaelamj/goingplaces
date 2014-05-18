@@ -20,7 +20,7 @@
 @property (nonatomic, strong) NSNumber *latitude;
 
 //images are added by user, and not with repository method
-@property (nonatomic, strong) NSArray *images; //of PlaceImage
+@property (nonatomic, strong) NSMutableArray *images; //of PlaceImage
 
 /**
  *  Makes array of Place objects from Google Plases API response

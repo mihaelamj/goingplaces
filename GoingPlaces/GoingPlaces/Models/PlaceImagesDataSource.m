@@ -38,7 +38,7 @@
 {
     PlaceImage *placeImage;
     
-    if ([self.place.images count] && [self.place.images count] < indexPath.row) {
+    if ([self.place.images count] && [self.place.images count] > indexPath.row) {
         placeImage = [self.place.images objectAtIndex:indexPath.row];
     }
     
@@ -62,6 +62,8 @@
 {
     //get cell
     PlaceImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[PlaceImageTableViewCell reusableIdentifier]];
+    
+    FWLog(@"row: %d", indexPath.row);
     
     //fetch place image
     PlaceImage *placeImage = [self placeImageForIndexPath:indexPath];

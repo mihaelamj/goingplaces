@@ -17,8 +17,12 @@
 //place images data source
 #import "PlaceImagesDataSource.h"
 
+#import "UIImage+MMJResize.h"
 
-@interface PlaceDetailViewController ()<UITextFieldDelegate, UITextViewDelegate>
+#import "Styles.h"
+
+
+@interface PlaceDetailViewController ()<UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate>
 
 //view
 @property (nonatomic, strong) PlaceDetailView *mainView;
@@ -61,6 +65,9 @@
     //table view data source
     self.mainView.tableView.dataSource = self.placeImagesDataSource;
     
+    //set row height
+    self.mainView.tableView.rowHeight = [PlaceImageTableViewCell suggestedHeight];
+    
     //set text filed and text view titles
     self.mainView.tableHeaderView.nameLabel.text = @"Name";
     self.mainView.tableHeaderView.addressLabel.text = @"Address";
@@ -87,7 +94,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
 - (void)setupNavigationBar
@@ -102,11 +108,40 @@
 - (void)takePictureButtonClicked
 {
     FWLog(@"Taking picture for place: %@", self.place.name);
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        
+        //just camera
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        //show picker controller
+        [self presentViewController:picker animated:YES completion:NULL];
+    }
 }
 
 - (void)doneButtonClicked
 {
     [self.view endEditing:YES];
+}
+
+#pragma mark -
+#pragma mark UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+    [self addImage:chosenImage];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark -
@@ -145,6 +180,8 @@
 #pragma mark -
 #pragma mark Private Methods
 
+//@TODO: implement persistance
+
 - (void)updatePlaceName:(NSString *)placeName
 {
     self.place.name = placeName;
@@ -155,6 +192,25 @@
 {
     self.place.address = placeAddress;
     FWLog(@"updated place address = %@", self.place.address);
+}
+
+- (void)addImage:(UIImage *)image
+{
+    FWLog(@"adding image %@", image);
+    
+    //resize image to fit the thumb
+    CGSize newSize = CGSizeMake(kThumbImageWidthHeight, kThumbImageWidthHeight);
+    UIImage *thumbImage = [UIImage imageWithImage:image scaledToSize:newSize];
+    
+    //create a new PlaceImage with thumb and place name
+    PlaceImage *placeImage = [[PlaceImage alloc] initWithImageName:[NSString stringWithFormat:@"%@ image", self.place.name] imageUrl:@"" thumbImage:thumbImage];
+    
+    //add it to place images
+    [self.place.images addObject: placeImage];
+    
+    //reload table view
+    //@TODO: reload just new cell
+    [self.mainView.tableView reloadData];
 }
 
 #pragma mark -

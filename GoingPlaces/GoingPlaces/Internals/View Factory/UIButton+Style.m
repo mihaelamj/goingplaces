@@ -45,6 +45,8 @@
             return kBigBoldFont;
         case ButtonStyleOk:
             return kNormalRegularFont;
+        case ButtonStyleSendPicture:
+            return kNormalRegularFont;
         default:
             return kNormalRegularFont;
     }
@@ -58,6 +60,8 @@
             return kDarkGrayColor;
         case ButtonStyleOk:
             return [UIColor whiteColor];
+        case ButtonStyleSendPicture:
+            return [UIColor whiteColor];
         default:
             return [UIColor whiteColor];
     }
@@ -70,6 +74,8 @@
         case ButtonStyleStart:
             return kMarineBlueColor;
         case ButtonStyleOk:
+            return kMarineBlueColor;
+        case ButtonStyleSendPicture:
             return kMarineBlueColor;
         default:
             return kMarineBlueColor;

@@ -10,12 +10,13 @@
 
 @implementation PlaceImage
 
-- (instancetype)initWithImageName:(NSString *)imageName imageUrl:(NSString *)imageUrl
+- (instancetype)initWithImageName:(NSString *)imageName imageUrl:(NSString *)imageUrl thumbImage:(UIImage *)thumbImage
 {
     self = [super init];
     if (self) {
         _imageName = imageName;
         _imageUrl = imageUrl;
+        _thumbImage = thumbImage;
     }
     return self;
 }

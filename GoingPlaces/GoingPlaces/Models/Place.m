@@ -68,4 +68,15 @@
     return [NSArray arrayWithArray:googlePlacesArray];
 }
 
+#pragma mark -
+#pragma mark Public Properties
+
+- (NSMutableArray *)images
+{
+    if (!_images) {
+        _images = [NSMutableArray array];
+    }
+    return _images;
+}
+
 @end

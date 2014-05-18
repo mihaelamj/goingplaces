@@ -67,6 +67,8 @@
             return NSTextAlignmentLeft;
         case LabelStyleHeader:
             return NSTextAlignmentCenter;
+        case LabelStyleImageName:
+            return NSTextAlignmentLeft;
         default:
             return NSTextAlignmentLeft;
     }
@@ -86,6 +88,8 @@
             return kDarkGrayColor;
         case LabelStyleTitle:
             return kMarineBlueColor;
+        case LabelStyleImageName:
+            return kDarkGrayColor;
         default:
             return kDarkGrayColor;
     }
@@ -104,6 +108,8 @@
             return kBigBoldFont;
         case LabelStyleTitle:
             return kMediumRegularFont;
+        case LabelStyleImageName:
+            return kNormalRegularFont;
         default:
             return kNormalRegularFont;
     }

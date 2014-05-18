@@ -10,7 +10,8 @@
 
 typedef NS_ENUM(NSInteger, ButtonStyle) {
     ButtonStyleStart,
-    ButtonStyleOk
+    ButtonStyleOk,
+    ButtonStyleSendPicture
 };
 
 @interface UIButton (Style)

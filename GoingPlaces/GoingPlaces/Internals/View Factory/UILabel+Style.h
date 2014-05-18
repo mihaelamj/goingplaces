@@ -13,7 +13,8 @@ typedef NS_ENUM(NSInteger, LabelStyle) {
     LabelStyleSmallDistance,
     LabelStyleDescription,
     LabelStyleHeader,
-    LabelStyleTitle
+    LabelStyleTitle,
+    LabelStyleImageName
 };
 
 @interface UILabel (Style)

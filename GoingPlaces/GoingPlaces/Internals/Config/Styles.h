@@ -22,4 +22,7 @@
 #define kMediumRegularFont [UIFont systemFontOfSize:12];
 #define kSmallRegularFont [UIFont systemFontOfSize:9];
 
+//sizes
+#define kThumbImageWidthHeight 120
+
 #endif

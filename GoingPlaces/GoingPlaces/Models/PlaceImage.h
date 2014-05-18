@@ -12,7 +12,8 @@
 
 @property (nonatomic, strong) NSString *imageName;
 @property (nonatomic, strong) NSString *imageUrl;
+@property (nonatomic, strong) UIImage *thumbImage;
 
-- (instancetype)initWithImageName:(NSString *)imageName imageUrl:(NSString *)imageUrl;
+- (instancetype)initWithImageName:(NSString *)imageName imageUrl:(NSString *)imageUrl thumbImage:(UIImage *)thumbImage;
 
 @end
