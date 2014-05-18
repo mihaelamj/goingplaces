@@ -17,14 +17,16 @@
 #import "UILabel+Style.h"
 #import "UITextView+Style.h"
 #import "UITextField+Style.h"
+#import "UIButton+Style.h"
+
 
 //sizes and offsets
 #define kLeftRightOffset 20
 #define kTopOffset 5
-#define kNameLabelHeight 35
-#define kAddressHeight 55
-#define kControlsOffset 0
-#define kTopBottomOffset 30
+#define kNameLabelHeight 10
+#define kAddressHeight 65
+#define kControlsOffset 5
+#define kTopBottomOffset 10
 
 @implementation PlaceTableHeaderView
 
@@ -42,6 +44,8 @@
         [self addSubview:self.nameLabel];
         [self addSubview:self.addressLabel];
         
+        [self addFrame];
+        
         //constraints
         [self setSubviewConstraints];
         
@@ -53,11 +57,20 @@
 
 + (NSInteger)suggestedHeight
 {
-    return kTopOffset*3 + kNameLabelHeight*4 + kControlsOffset*2 + kAddressHeight + kTopBottomOffset;
+    return kTopOffset*3 + kNameLabelHeight*4 + kControlsOffset*2 + kAddressHeight + kTopBottomOffset*4;
 }
 
 #pragma mark -
 #pragma mark Private Methods - Layout
+
+- (void)addFrame
+{
+//    self.layer.cornerRadius = 2;
+    
+    //set border color and width
+    self.layer.borderColor = kMediumGrayColor.CGColor;
+    self.layer.borderWidth = 1.0f;
+}
 
 - (void)setSubviewConstraints
 {

@@ -26,12 +26,16 @@
 }
 
 #pragma mark -
-#pragma mark Properties
+#pragma mark Public Properties - Views
 
 - (PlaceTableHeaderView *)tableHeaderView
 {
     if (!_tableHeaderView) {
         _tableHeaderView = [[PlaceTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, [PlaceTableHeaderView suggestedHeight])];
+        
+        //set input accessory view for input controls
+        _tableHeaderView.nameTextField.inputAccessoryView = self.keyboardToolbar;
+        _tableHeaderView.addressTextView.inputAccessoryView = self.keyboardToolbar;
     }
     return _tableHeaderView;
 }
@@ -50,6 +54,15 @@
     }
     
     return _tableView;
+}
+
+- (KeyboardToolbar *)keyboardToolbar
+{
+    if (!_keyboardToolbar) {
+        _keyboardToolbar = [[KeyboardToolbar alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), 44)];
+        [_keyboardToolbar sizeToFit];
+    }
+    return _keyboardToolbar;
 }
 
 @end

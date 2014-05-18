@@ -25,6 +25,7 @@
 		A905FD0919292E01009113E1 /* UIButton+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FD0819292E01009113E1 /* UIButton+Style.m */; };
 		A905FD0C192932B5009113E1 /* UITextField+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FD0B192932B5009113E1 /* UITextField+Style.m */; };
 		A905FD0F192932E9009113E1 /* UITextView+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FD0E192932E9009113E1 /* UITextView+Style.m */; };
+		A905FD121929525F009113E1 /* KeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FD111929525F009113E1 /* KeyboardToolbar.m */; };
 		A9EFB29E1927B884000E7F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB29D1927B884000E7F9B /* Foundation.framework */; };
 		A9EFB2A01927B884000E7F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */; };
 		A9EFB2A21927B884000E7F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB2A11927B884000E7F9B /* UIKit.framework */; };
@@ -92,6 +93,8 @@
 		A905FD0B192932B5009113E1 /* UITextField+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextField+Style.m"; path = "Internals/View Factory/UITextField+Style.m"; sourceTree = "<group>"; };
 		A905FD0D192932E9009113E1 /* UITextView+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextView+Style.h"; path = "Internals/View Factory/UITextView+Style.h"; sourceTree = "<group>"; };
 		A905FD0E192932E9009113E1 /* UITextView+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITextView+Style.m"; path = "Internals/View Factory/UITextView+Style.m"; sourceTree = "<group>"; };
+		A905FD101929525F009113E1 /* KeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardToolbar.h; path = "Internals/View Helpers/KeyboardToolbar.h"; sourceTree = "<group>"; };
+		A905FD111929525F009113E1 /* KeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyboardToolbar.m; path = "Internals/View Helpers/KeyboardToolbar.m"; sourceTree = "<group>"; };
 		A9EFB29A1927B884000E7F9B /* GoingPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoingPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EFB29D1927B884000E7F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -350,6 +353,8 @@
 				A905FCF919291A39009113E1 /* PlaceTableHeaderView.m */,
 				A905FCFB19291DD7009113E1 /* PlaceImageTableViewCell.h */,
 				A905FCFC19291DD7009113E1 /* PlaceImageTableViewCell.m */,
+				A905FD101929525F009113E1 /* KeyboardToolbar.h */,
+				A905FD111929525F009113E1 /* KeyboardToolbar.m */,
 			);
 			name = "View Helpers";
 			sourceTree = "<group>";
@@ -550,6 +555,7 @@
 				A905FCE41928C612009113E1 /* StartViewController.m in Sources */,
 				A905FCF7192915B8009113E1 /* PlaceDetailViewController.m in Sources */,
 				A905FCE11928C3C8009113E1 /* PlacesOnMapView.m in Sources */,
+				A905FD121929525F009113E1 /* KeyboardToolbar.m in Sources */,
 				A9EFB2D21927BBCF000E7F9B /* GPAppDelegate.m in Sources */,
 				A905FCFD19291DD7009113E1 /* PlaceImageTableViewCell.m in Sources */,
 				A905FD0C192932B5009113E1 /* UITextField+Style.m in Sources */,

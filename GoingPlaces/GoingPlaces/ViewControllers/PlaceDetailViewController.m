@@ -75,12 +75,31 @@
     //assign UITextField delegate to self, for all fields
 //    self.mainView.tableHeaderView.nameTextField.delegate = self;
 //    self.mainView.tableHeaderView.addressTextView.delegate = self;
+    
+    //place take picture button on navigation bar
+    [self setupNavigationBar];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)setupNavigationBar
+{
+    UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePictureButtonClicked)];
+//    [self.navigationController.navigationItem setRightBarButtonItem:cameraBarButtonItem];
+    self.navigationItem.rightBarButtonItem = cameraBarButtonItem;
+
+}
+
+#pragma mark -
+#pragma mark View Actions
+
+- (void)takePictureButtonClicked
+{
+    FWLog(@"Taking picture for place: %@", self.place.name);
 }
 
 #pragma mark -

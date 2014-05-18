@@ -11,9 +11,13 @@
 //custom view holding place name and addres
 #import "PlaceTableHeaderView.h"
 
+//keyboard toolbar
+#import "KeyboardToolbar.h"
+
 @interface PlaceDetailView : UIView
 
 @property (nonatomic, strong) PlaceTableHeaderView *tableHeaderView;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) KeyboardToolbar *keyboardToolbar;
 
 @end
