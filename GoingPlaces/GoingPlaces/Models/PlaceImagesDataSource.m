@@ -63,8 +63,6 @@
     //get cell
     PlaceImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[PlaceImageTableViewCell reusableIdentifier]];
     
-    FWLog(@"row: %d", indexPath.row);
-    
     //fetch place image
     PlaceImage *placeImage = [self placeImageForIndexPath:indexPath];
     
