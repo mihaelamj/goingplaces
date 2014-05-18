@@ -14,6 +14,9 @@
 //location manager
 #import <CoreLocation/CoreLocation.h>
 
+//progress hud
+#import <MBProgressHUD.h>
+
 //GooglePlaces (fetch) repositry
 #import "GPGooglePlacesRepository.h"
 
@@ -96,7 +99,7 @@
         [self.mainView.mapView removeAnnotation:annotation];
     }
     
-    //draw new annotations
+    //draw new annotations with fetched places
     for (Place *place in self.currentPlaces) {
         
         //create annotation view
@@ -105,6 +108,22 @@
         //add it to map view
         [self.mainView.mapView addAnnotation:mapAnnotation];
     }
+}
+
+- (void)fetchPlaces
+{
+    //show spinner
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    //fetch Google Places
+    [GPGooglePlacesRepository googlePlacesWithCoordinate:self.mainView.currentLocation.coordinate distanceInMeters:self.mainView.distanceInMeters returnBlock:^(NSArray *googlePlacesArray, NSError *error) {
+        
+        //set and show fetched Google places
+        self.currentPlaces = googlePlacesArray;
+        
+        //hide spinner
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    }];
 }
 
 #pragma mark -
@@ -121,12 +140,8 @@
     //stop locating
     [self.locationManager stopUpdatingLocation];
     
-    //fetch Google Places
-    [GPGooglePlacesRepository googlePlacesWithCoordinate:self.mainView.currentLocation.coordinate distanceInMeters:self.mainView.distanceInMeters returnBlock:^(NSArray *googlePlacesArray, NSError *error) {
-        
-        //set and show fetched Google places
-        self.currentPlaces = googlePlacesArray;
-    }];
+    //fetch nearby places
+    [self fetchPlaces];
 }
 
 #pragma mark -
