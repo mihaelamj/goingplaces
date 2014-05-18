@@ -2,83 +2,62 @@
 //  GooglePlacesViewController.m
 //  GoingPlaces
 //
-//  Created by Mihaela Mihaljević Jakić on 17/05/14.
+//  Created by Mihaela Mihaljević Jakić on 18/05/14.
 //  Copyright (c) 2014 Token d.o.o. All rights reserved.
 //
 
 #import "GooglePlacesViewController.h"
 
-//map view
-#import <MapKit/MapKit.h>
+//main view
+#import "GooglePlacesView.h"
 
 //location manager
 #import <CoreLocation/CoreLocation.h>
 
-//fetch repositry
+//GooglePlaces (fetch) repositry
 #import "GPGooglePlacesRepository.h"
-
-//Google key
-#import "Keys.h"
 
 @interface GooglePlacesViewController ()<MKMapViewDelegate, CLLocationManagerDelegate>
 
-@property (nonatomic, strong) MKMapView *mapView;
+@property (nonatomic, strong) GooglePlacesView *mainView;
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
-
-@property (nonatomic ,strong) CLLocation *currentLocation;
-
-@property (nonatomic) NSInteger distanceInMeters;
 
 @end
 
 @implementation GooglePlacesViewController
 
+//maybe remove
 - (id)init
 {
     self = [super init];
     if (self) {
-        
-        //set initial distance
-        _distanceInMeters = 1000;
-        
     }
     return self;
+}
+
+#pragma mark -
+#pragma mark View Lifecycle
+
+- (void)loadView
+{
+    //create main view
+    self.mainView = [[GooglePlacesView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];
+    self.view = self.mainView;
+    
+    //set self as map delegate
+    self.mainView.mapView.delegate = self;
+    
+    //set self as location manager delegate
+    self.locationManager.delegate = self;
+    
+    //start locating
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //add map view
-    [self.view addSubview:self.mapView];
-    
-    //start locating
-    [self.locationManager startUpdatingLocation];
-    
-    //@TEST:
-//    self.distanceInMeters = 500;
-}
-
-#pragma mark -
-#pragma mark Private Methods
-
-- (void)centerMap:(CLLocation *)location distanceMeters:(NSInteger)distanceMeters
-{
-    //check if we have item )
-    if (self.currentLocation) {
-        
-        MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(location.coordinate, distanceMeters, distanceMeters);
-        
-        //set region on map
-        [self.mapView setRegion:region animated:YES];
-    }
-}
-
-- (void)updateLocationWithDistance
-{
-    if (self.currentLocation)
-        [self centerMap:self.currentLocation distanceMeters:self.distanceInMeters];
 }
 
 #pragma mark -
@@ -90,29 +69,19 @@
     CLLocation *newLocation = [locations lastObject];
     
     //set current location (will center map)
-    self.currentLocation = newLocation;
-        
+    self.mainView.currentLocation = newLocation;
+    FWLog(@"got location: %@", newLocation);
+    
     //stop locating
     [self.locationManager stopUpdatingLocation];
     
-    
     //fetch Google Places
-    [GPGooglePlacesRepository googlePlacesWithCoordinate:self.currentLocation.coordinate distanceInMeters:self.distanceInMeters returnBlock:^(NSArray *googlePlacesArray, NSError *error) {
+    [GPGooglePlacesRepository googlePlacesWithCoordinate:self.mainView.currentLocation.coordinate distanceInMeters:self.mainView.distanceInMeters returnBlock:^(NSArray *googlePlacesArray, NSError *error) {
         
         FWLog(@"got Google Places: %@", googlePlacesArray);
         
         //@TODO: show Google places
-        
     }];
-}
-
-- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
-{
-    //stop locating
-    [self.locationManager stopUpdatingLocation];
-    
-    //stop locationg
-    self.currentLocation = nil;
 }
 
 #pragma mark -
@@ -123,50 +92,12 @@
     if (!_locationManager) {
         _locationManager = [[CLLocationManager alloc] init];
         
-        //set self as delegate
-        _locationManager.delegate = self;
-        
         //set distance and accuracy
         _locationManager.distanceFilter = kCLDistanceFilterNone;
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     }
     
     return _locationManager;
-}
-
-- (void)setCurrentLocation:(CLLocation *)currentLocation
-{
-    _currentLocation = currentLocation;
-    
-    //center map
-    [self updateLocationWithDistance];
-}
-
-- (void)setDistanceInMeters:(NSInteger)distanceInMeters
-{
-    _distanceInMeters = distanceInMeters;
-    //center map
-    [self updateLocationWithDistance];
-}
-
-#pragma mark -
-#pragma mark Private Properties - Views
-
-- (MKMapView *)mapView
-{
-    if (!_mapView) {
-        
-        //take whole view space
-        _mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        
-        //set self as delegate
-        _mapView.delegate = self;
-        
-        //always show users location
-        _mapView.showsUserLocation = YES;
-    }
-    
-    return _mapView;
 }
 
 

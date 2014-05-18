@@ -11,7 +11,6 @@
 //HTTP client
 #import "GPGooglePlacesHTTPClient.h"
 
-
 //model
 #import "GooglePlace.h"
 

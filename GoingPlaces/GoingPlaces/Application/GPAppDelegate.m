@@ -9,7 +9,16 @@
 #import "GPAppDelegate.h"
 
 //@TEST:
-#import "GooglePlacesViewController.h"
+#import "GooglePlacesViewControllerOld.h"
+
+//first view controller
+#import "StartViewController.h"
+
+@interface GPAppDelegate ()
+
+@property (nonatomic, strong) UINavigationController *navigationController;
+
+@end
 
 @implementation GPAppDelegate
 
@@ -20,11 +29,26 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     //@TEST:
-    self.window.rootViewController = [[GooglePlacesViewController alloc] init];
+//    self.window.rootViewController = [[GooglePlacesViewController alloc] init];
+    
+    //set navigation controller as root view controller
+    self.window.rootViewController = self.navigationController;
     
     //start app
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+#pragma mark -
+#pragma mark Properties
+
+- (UINavigationController *)navigationController
+{
+    if (!_navigationController) {
+        _navigationController = [[UINavigationController alloc] initWithRootViewController:[[StartViewController alloc] init]];
+    }
+    
+    return _navigationController;
 }
 
 

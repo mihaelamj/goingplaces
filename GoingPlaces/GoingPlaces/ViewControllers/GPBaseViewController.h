@@ -1,14 +1,13 @@
 //
-//  GooglePlacesViewController.h
+//  GPBaseViewController.h
 //  GoingPlaces
 //
 //  Created by Mihaela Mihaljević Jakić on 18/05/14.
 //  Copyright (c) 2014 Token d.o.o. All rights reserved.
 //
 
-//base VC
-#import "GPBaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface GooglePlacesViewController : GPBaseViewController
+@interface GPBaseViewController : UIViewController
 
 @end
