@@ -117,7 +117,6 @@
     
     //set current location (will center map)
     self.mainView.currentLocation = newLocation;
-    FWLog(@"got location: %@", newLocation);
     
     //stop locating
     [self.locationManager stopUpdatingLocation];
