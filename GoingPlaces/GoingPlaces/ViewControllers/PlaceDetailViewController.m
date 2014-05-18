@@ -18,7 +18,7 @@
 #import "PlaceImagesDataSource.h"
 
 
-@interface PlaceDetailViewController ()
+@interface PlaceDetailViewController ()<UITextFieldDelegate, UITextViewDelegate>
 
 //view
 @property (nonatomic, strong) PlaceDetailView *mainView;
@@ -73,8 +73,12 @@
     self.mainView.tableHeaderView.addressTextView.text = self.place.address;
     
     //assign UITextField delegate to self, for all fields
-//    self.mainView.tableHeaderView.nameTextField.delegate = self;
-//    self.mainView.tableHeaderView.addressTextView.delegate = self;
+    self.mainView.tableHeaderView.nameTextField.delegate = self;
+    self.mainView.tableHeaderView.addressTextView.delegate = self;
+    
+    //setup keyboard toolbar
+    [self.mainView.keyboardToolbar.doneButton setTarget:self];
+    [self.mainView.keyboardToolbar.doneButton setAction:@selector(doneButtonClicked)];
     
     //place take picture button on navigation bar
     [self setupNavigationBar];
@@ -89,9 +93,7 @@
 - (void)setupNavigationBar
 {
     UIBarButtonItem *cameraBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(takePictureButtonClicked)];
-//    [self.navigationController.navigationItem setRightBarButtonItem:cameraBarButtonItem];
     self.navigationItem.rightBarButtonItem = cameraBarButtonItem;
-
 }
 
 #pragma mark -
@@ -100,6 +102,59 @@
 - (void)takePictureButtonClicked
 {
     FWLog(@"Taking picture for place: %@", self.place.name);
+}
+
+- (void)doneButtonClicked
+{
+    [self.view endEditing:YES];
+}
+
+#pragma mark -
+#pragma mark UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self updatePlaceName:textField.text];
+}
+
+#pragma mark -
+#pragma mark UITextViewDelegate
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    //dismiss keyboard if enter is pressed
+    if ([text hasSuffix:@"\n"]) {
+        [textView resignFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    [self updatePlaceAddress:textView.text];
+}
+
+#pragma mark -
+#pragma mark Private Methods
+
+- (void)updatePlaceName:(NSString *)placeName
+{
+    self.place.name = placeName;
+    FWLog(@"updated place name = %@", self.place.name);
+}
+
+- (void)updatePlaceAddress:(NSString *)placeAddress
+{
+    self.place.address = placeAddress;
+    FWLog(@"updated place address = %@", self.place.address);
 }
 
 #pragma mark -
