@@ -60,6 +60,21 @@
     
     //table view data source
     self.mainView.tableView.dataSource = self.placeImagesDataSource;
+    
+    //set text filed and text view titles
+    self.mainView.tableHeaderView.nameLabel.text = @"Name";
+    self.mainView.tableHeaderView.addressLabel.text = @"Address";
+    
+    //set text filed placeholder text
+    self.mainView.tableHeaderView.nameTextField.placeholder = @"name";
+    
+    //set Place properties
+    self.mainView.tableHeaderView.nameTextField.text = self.place.name;
+    self.mainView.tableHeaderView.addressTextView.text = self.place.address;
+    
+    //assign UITextField delegate to self, for all fields
+//    self.mainView.tableHeaderView.nameTextField.delegate = self;
+//    self.mainView.tableHeaderView.addressTextView.delegate = self;
 }
 
 - (void)viewDidLoad

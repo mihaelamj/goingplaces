@@ -29,10 +29,16 @@
     //create text view
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectZero];
     
+    //frame
+    textView.backgroundColor = [UIColor whiteColor];
+    textView.layer.borderWidth = 1;
+    textView.layer.borderColor = kLightGrayColor.CGColor;
+    
     //style text view
     textView.backgroundColor = [self backgroundColorForStyle:style];
     textView.textColor = [self textColorForStyle:style];
     textView.textAlignment = [self textAlignmentForStyle:style];
+    textView.font = [self fontForStyle:style];
     
     //return styled text view
     return textView;
@@ -42,7 +48,7 @@
 {
     switch (style) {
         case TextViewStyleAddress:
-            return NSTextAlignmentCenter;
+            return NSTextAlignmentLeft;
         default:
             return NSTextAlignmentLeft;
     }

@@ -29,10 +29,16 @@
     //create text field
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];
     
+    //frame
+    textField.backgroundColor = [UIColor whiteColor];
+    textField.layer.borderWidth = 1;
+    textField.layer.borderColor = kLightGrayColor.CGColor;
+    
     //style text field
     textField.backgroundColor = [self backgroundColorForStyle:style];
     textField.textColor = [self textColorForStyle:style];
     textField.textAlignment = [self textAlignmentForStyle:style];
+    textField.font = [self fontForStyle:style];
     
     //return styled text field
     return textField;
@@ -42,7 +48,7 @@
 {
     switch (style) {
         case TextFieldStyleName:
-            return NSTextAlignmentCenter;
+            return NSTextAlignmentLeft;
         default:
             return NSTextAlignmentLeft;
     }

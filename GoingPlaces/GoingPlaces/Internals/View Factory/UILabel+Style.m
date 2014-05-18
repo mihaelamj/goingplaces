@@ -84,6 +84,8 @@
             return kDarkGrayColor;
         case LabelStyleHeader:
             return kDarkGrayColor;
+        case LabelStyleTitle:
+            return kMarineBlueColor;
         default:
             return kDarkGrayColor;
     }
@@ -100,6 +102,8 @@
             return kNormalRegularFont;
         case LabelStyleHeader:
             return kBigBoldFont;
+        case LabelStyleTitle:
+            return kMediumRegularFont;
         default:
             return kNormalRegularFont;
     }

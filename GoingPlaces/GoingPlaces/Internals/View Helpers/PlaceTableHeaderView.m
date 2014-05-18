@@ -19,11 +19,12 @@
 #import "UITextField+Style.h"
 
 //sizes and offsets
-#define kLeftRightOffset 5
+#define kLeftRightOffset 20
 #define kTopOffset 5
-#define kNameLabelHeight 15
-#define kAddressHeight 35
-#define kControlsOffset 2
+#define kNameLabelHeight 35
+#define kAddressHeight 55
+#define kControlsOffset 0
+#define kTopBottomOffset 30
 
 @implementation PlaceTableHeaderView
 
@@ -43,14 +44,16 @@
         
         //constraints
         [self setSubviewConstraints];
+        
+        //@TEST:
+//        self.backgroundColor = [UIColor lightGrayColor];
     }
     return self;
 }
 
 + (NSInteger)suggestedHeight
 {
-//    return kTopOffset + kNameLabelHeight + kControlsOffset + kNameLabelHeight + kTopOffset + kNameLabelHeight + kControlsOffset + kAddressHeight + kTopOffset;
-    return kTopOffset*3 + kNameLabelHeight*3 + kControlsOffset*2 + kAddressHeight;
+    return kTopOffset*3 + kNameLabelHeight*4 + kControlsOffset*2 + kAddressHeight + kTopBottomOffset;
 }
 
 #pragma mark -
@@ -61,13 +64,15 @@
     //name label on top left, with left offset
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(kLeftRightOffset);
-        make.top.equalTo(self.mas_top).with.offset(kTopOffset);
+        make.right.equalTo(self.mas_right).with.offset(-kLeftRightOffset);
+        make.top.equalTo(self.mas_top).with.offset(kTopOffset*3);
         make.height.greaterThanOrEqualTo(@(kNameLabelHeight));
     }];
     
     //name text field below
     [self.nameTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(kLeftRightOffset);
+        make.right.equalTo(self.mas_right).with.offset(-kLeftRightOffset);
         make.top.equalTo(self.self.nameLabel.mas_bottom).with.offset(kControlsOffset);
         make.height.greaterThanOrEqualTo(@(kNameLabelHeight));
     }];
@@ -75,6 +80,7 @@
     //addres label below name field
     [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(kLeftRightOffset);
+        make.right.equalTo(self.mas_right).with.offset(-kLeftRightOffset);
         make.top.equalTo(self.self.nameTextField.mas_bottom).with.offset(kTopOffset);
         make.height.greaterThanOrEqualTo(@(kNameLabelHeight));
     }];
@@ -82,6 +88,7 @@
     //addres text view below address label
     [self.addressTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(kLeftRightOffset);
+        make.right.equalTo(self.mas_right).with.offset(-kLeftRightOffset);
         make.top.equalTo(self.self.addressLabel.mas_bottom).with.offset(kControlsOffset);
         make.height.greaterThanOrEqualTo(@(kAddressHeight));
     }];
@@ -118,7 +125,7 @@
 - (UILabel *)nameLabel
 {
     if (!_nameLabel) {
-        _nameLabel = [UILabel labelWithStyle:LabelStyleDescription];
+        _nameLabel = [UILabel labelWithStyle:LabelStyleTitle];
         
         //prepare for Auto Layout
         _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -129,7 +136,7 @@
 - (UILabel *)addressLabel
 {
     if (!_addressLabel) {
-        _addressLabel = [UILabel labelWithStyle:LabelStyleDescription];
+        _addressLabel = [UILabel labelWithStyle:LabelStyleTitle];
     }
     return _addressLabel;
 }
