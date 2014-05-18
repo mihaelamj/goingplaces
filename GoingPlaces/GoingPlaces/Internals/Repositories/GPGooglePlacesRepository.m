@@ -11,14 +11,22 @@
 //HTTP client
 #import "GPGooglePlacesHTTPClient.h"
 
+
 //model
 #import "GooglePlace.h"
+
+@interface GPGooglePlacesRepository ()
+
+@end
 
 @implementation GPGooglePlacesRepository
 
 + (void)googlePlacesWithCoordinate:(CLLocationCoordinate2D)coordinate distanceInMeters:(NSInteger)distanceInMeters returnBlock:(void (^)(NSArray *googlePlacesArray, NSError *error))returnBlock
 {
-    [[GPGooglePlacesHTTPClient client] googlePlacesWithLongitude:coordinate.longitude latitude:coordinate.latitude distanceInMeters:distanceInMeters withReturnBlock:^(NSArray *responseArray, NSError *error) {
+    //create singelton http client
+    GPGooglePlacesHTTPClient *httpClient = [GPGooglePlacesHTTPClient client];
+    
+    [httpClient googlePlacesWithLongitude:coordinate.longitude latitude:coordinate.latitude distanceInMeters:distanceInMeters withReturnBlock:^(NSArray *responseArray, NSError *error) {
         
         if (error) {
             
@@ -32,6 +40,7 @@
             
         }
     }];
+
 }
 
 @end

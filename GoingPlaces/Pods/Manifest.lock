@@ -27,7 +27,6 @@ PODS:
     - Kiwi/NonARC
   - Masonry (0.5.0)
   - MBProgressHUD (0.8)
-  - Reachability (3.1.1)
   - SDWebImage (3.6):
     - SDWebImage/Core
   - SDWebImage/Core (3.6)
@@ -38,7 +37,6 @@ DEPENDENCIES:
   - Kiwi/XCTest
   - Masonry (~> 0.4)
   - MBProgressHUD (~> 0.8)
-  - Reachability (~> 3.1)
   - SDWebImage (~> 3.6)
 
 SPEC CHECKSUMS:
@@ -47,7 +45,6 @@ SPEC CHECKSUMS:
   Kiwi: d60d7498b640a16f58b01925fc3c8d7c4d809f66
   Masonry: bef482b29f00b33a2da916e1011af85f5d371d66
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
-  Reachability: be4883bb93f31e38266ae3365e5600a317aae735
   SDWebImage: 7eb273e54ca8a2e506ad9bd5e80c35b2a4d7c95e
 
 COCOAPODS: 0.32.1
