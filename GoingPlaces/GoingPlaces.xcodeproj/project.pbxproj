@@ -27,6 +27,7 @@
 		A905FD0F192932E9009113E1 /* UITextView+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FD0E192932E9009113E1 /* UITextView+Style.m */; };
 		A905FD121929525F009113E1 /* KeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FD111929525F009113E1 /* KeyboardToolbar.m */; };
 		A905FD151929693D009113E1 /* UIImage+MMJResize.m in Sources */ = {isa = PBXBuildFile; fileRef = A905FD141929693D009113E1 /* UIImage+MMJResize.m */; };
+		A975A6B519297DF000259FA5 /* Place+GooglePlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = A975A6B419297DF000259FA5 /* Place+GooglePlaces.m */; };
 		A9EFB29E1927B884000E7F9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB29D1927B884000E7F9B /* Foundation.framework */; };
 		A9EFB2A01927B884000E7F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */; };
 		A9EFB2A21927B884000E7F9B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB2A11927B884000E7F9B /* UIKit.framework */; };
@@ -43,7 +44,7 @@
 		A9EFB35A1927D90D000E7F9B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB3591927D90D000E7F9B /* MapKit.framework */; };
 		A9EFB35C1927D923000E7F9B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9EFB35B1927D923000E7F9B /* CoreLocation.framework */; };
 		A9EFB35F1927F58B000E7F9B /* GPGooglePlacesRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EFB35E1927F58B000E7F9B /* GPGooglePlacesRepository.m */; };
-		A9EFB3621927F75F000E7F9B /* GPGooglePlacesHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EFB3611927F75F000E7F9B /* GPGooglePlacesHTTPClient.m */; };
+		A9EFB3621927F75F000E7F9B /* GPPlacesHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A9EFB3611927F75F000E7F9B /* GPPlacesHTTPClient.m */; };
 		C9BEDDC5A9C945E1941E8463 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFBE4868751A4D24860421A3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,8 @@
 		A905FD111929525F009113E1 /* KeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyboardToolbar.m; path = "Internals/View Helpers/KeyboardToolbar.m"; sourceTree = "<group>"; };
 		A905FD131929693D009113E1 /* UIImage+MMJResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+MMJResize.h"; path = "Internals/View Helpers/UIImage+MMJResize.h"; sourceTree = "<group>"; };
 		A905FD141929693D009113E1 /* UIImage+MMJResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MMJResize.m"; path = "Internals/View Helpers/UIImage+MMJResize.m"; sourceTree = "<group>"; };
+		A975A6B319297DF000259FA5 /* Place+GooglePlaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Place+GooglePlaces.h"; path = "Models/Place+GooglePlaces.h"; sourceTree = "<group>"; };
+		A975A6B419297DF000259FA5 /* Place+GooglePlaces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Place+GooglePlaces.m"; path = "Models/Place+GooglePlaces.m"; sourceTree = "<group>"; };
 		A9EFB29A1927B884000E7F9B /* GoingPlaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoingPlaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9EFB29D1927B884000E7F9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A9EFB29F1927B884000E7F9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,8 +123,8 @@
 		A9EFB35B1927D923000E7F9B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A9EFB35D1927F58B000E7F9B /* GPGooglePlacesRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGooglePlacesRepository.h; path = Internals/Repositories/GPGooglePlacesRepository.h; sourceTree = "<group>"; };
 		A9EFB35E1927F58B000E7F9B /* GPGooglePlacesRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGooglePlacesRepository.m; path = Internals/Repositories/GPGooglePlacesRepository.m; sourceTree = "<group>"; };
-		A9EFB3601927F75F000E7F9B /* GPGooglePlacesHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPGooglePlacesHTTPClient.h; path = Internals/Networking/GPGooglePlacesHTTPClient.h; sourceTree = "<group>"; };
-		A9EFB3611927F75F000E7F9B /* GPGooglePlacesHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPGooglePlacesHTTPClient.m; path = Internals/Networking/GPGooglePlacesHTTPClient.m; sourceTree = "<group>"; };
+		A9EFB3601927F75F000E7F9B /* GPPlacesHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPPlacesHTTPClient.h; path = Internals/Networking/GPPlacesHTTPClient.h; sourceTree = "<group>"; };
+		A9EFB3611927F75F000E7F9B /* GPPlacesHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPPlacesHTTPClient.m; path = Internals/Networking/GPPlacesHTTPClient.m; sourceTree = "<group>"; };
 		CFBE4868751A4D24860421A3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99B9B7A7E704CECABDC907B /* Pods-GoingPlaces Tests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoingPlaces Tests.xcconfig"; path = "Pods/Pods-GoingPlaces Tests.xcconfig"; sourceTree = "<group>"; };
 		DF90DC74A0B94F21B3F1E884 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 			children = (
 				A905FCDC1928B3B0009113E1 /* Place.h */,
 				A905FCDD1928B3B0009113E1 /* Place.m */,
+				A975A6B319297DF000259FA5 /* Place+GooglePlaces.h */,
+				A975A6B419297DF000259FA5 /* Place+GooglePlaces.m */,
 				A905FCFE19291E96009113E1 /* PlaceImage.h */,
 				A905FCFF19291E96009113E1 /* PlaceImage.m */,
 				A905FD0119292193009113E1 /* PlaceImagesDataSource.h */,
@@ -310,8 +315,8 @@
 		A9EFB2FB1927C1AA000E7F9B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A9EFB3601927F75F000E7F9B /* GPGooglePlacesHTTPClient.h */,
-				A9EFB3611927F75F000E7F9B /* GPGooglePlacesHTTPClient.m */,
+				A9EFB3601927F75F000E7F9B /* GPPlacesHTTPClient.h */,
+				A9EFB3611927F75F000E7F9B /* GPPlacesHTTPClient.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -545,7 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9EFB2D41927BC0A000E7F9B /* main.m in Sources */,
-				A9EFB3621927F75F000E7F9B /* GPGooglePlacesHTTPClient.m in Sources */,
+				A9EFB3621927F75F000E7F9B /* GPPlacesHTTPClient.m in Sources */,
 				A905FD0919292E01009113E1 /* UIButton+Style.m in Sources */,
 				A905FCFA19291A39009113E1 /* PlaceTableHeaderView.m in Sources */,
 				A905FCDE1928B3B0009113E1 /* Place.m in Sources */,
@@ -556,6 +561,7 @@
 				A905FD0F192932E9009113E1 /* UITextView+Style.m in Sources */,
 				A905FCE71928C6A9009113E1 /* StartView.m in Sources */,
 				A905FD151929693D009113E1 /* UIImage+MMJResize.m in Sources */,
+				A975A6B519297DF000259FA5 /* Place+GooglePlaces.m in Sources */,
 				A905FCED1928D680009113E1 /* PlacesOnMapViewController.m in Sources */,
 				A905FCEA1928C754009113E1 /* GPBaseViewController.m in Sources */,
 				A905FCE41928C612009113E1 /* StartViewController.m in Sources */,

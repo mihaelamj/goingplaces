@@ -19,8 +19,7 @@
 #define kLeftRightOffset 5
 #define kControlsOffset 3
 #define kMinButtonWidth 50
-#define kMinLabelWidth 50
-
+#define kMinLabelWidth 45
 
 static NSString * const kPlaceCellIdentifier = @"PlaceTableViewCellIdentifier";
 
@@ -44,9 +43,6 @@ static NSString * const kPlaceCellIdentifier = @"PlaceTableViewCellIdentifier";
         [self.contentView addSubview:self.thumbView];
         [self.contentView addSubview:self.imageNameLabel];
         [self.contentView addSubview:self.sendImageButton];
-        
-        //@TEST:
-        self.imageView.backgroundColor = [UIColor blueColor];
         
         //constraints
         [self setSubviewConstraints];
@@ -105,7 +101,6 @@ static NSString * const kPlaceCellIdentifier = @"PlaceTableViewCellIdentifier";
     if (placeImage.imageName) {
         self.imageNameLabel.text = placeImage.imageName;
     }
-
 }
 
 #pragma mark -

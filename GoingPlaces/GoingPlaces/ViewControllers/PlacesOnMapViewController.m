@@ -38,15 +38,6 @@
 
 @implementation PlacesOnMapViewController
 
-//maybe remove
-- (id)init
-{
-    self = [super init];
-    if (self) {
-    }
-    return self;
-}
-
 #pragma mark -
 #pragma mark View Lifecycle
 
@@ -88,7 +79,7 @@
     //set new distance
     self.mainView.distanceInMeters = ceil(sender.value);
     
-    //new search - start location manager
+    //new search, so start location manager
     [self.locationManager startUpdatingLocation];
 }
 
@@ -156,10 +147,10 @@
     
     if ([annotation isKindOfClass:[GPMapAnnotation class]]) {
         
-        //tyr to deque annotation
+        //try to deque annotation
         annotationView = (MKAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:[GPMapAnnotation annotiationIdentifier]];
         
-        //init new annotation if no available annotations
+        //init new annotation if there are no available annotations to deque
         if (annotationView == nil) {
             annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:[GPMapAnnotation annotiationIdentifier]];
             
@@ -180,17 +171,10 @@
     return annotationView;
 }
 
-//-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-//{
-//    Place *place = [(GPMapAnnotation *)view.annotation place];
-//    FWLog(@"selected annotation for place: %@", place);
-//}
-
 //called when user clicks on (i) button
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     Place *place = [(GPMapAnnotation *)view.annotation place];
-    FWLog(@"clicked i button on annotation for place: %@", place);
     
     //deselct annotation
     [mapView deselectAnnotation:view.annotation animated:NO];

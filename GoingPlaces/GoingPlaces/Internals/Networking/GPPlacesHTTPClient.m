@@ -1,12 +1,12 @@
 //
-//  GPGooglePlacesHTTPClient.m
+//  GPPlacesHTTPClient.m
 //  GoingPlaces
 //
 //  Created by Mihaela Mihaljević Jakić on 17/05/14.
 //  Copyright (c) 2014 Token d.o.o. All rights reserved.
 //
 
-#import "GPGooglePlacesHTTPClient.h"
+#import "GPPlacesHTTPClient.h"
 
 #import "Keys.h"
 
@@ -15,20 +15,20 @@ NSString * const kGooglePlacesRequestNearby = @"nearbysearch";
 
 NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%i&sensor=true&key=%@";
 
-@interface GPGooglePlacesHTTPClient ()
+@interface GPPlacesHTTPClient ()
 
 @property (nonatomic, strong) NSString *apiKey;
 
 @end
 
-@implementation GPGooglePlacesHTTPClient
+@implementation GPPlacesHTTPClient
 
 #pragma mark -
 #pragma mark Singleton
 
 + (instancetype)client
 {
-    static GPGooglePlacesHTTPClient *client = nil;
+    static GPPlacesHTTPClient *client = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         client = [[self alloc] initWithBaseURL:[NSURL URLWithString:kGooglePlacesAPIBaseURL]];
@@ -49,9 +49,6 @@ NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/ap
         //set response serilizer
         self.responseSerializer = [AFJSONResponseSerializer serializer];
         
-        //@INFO: relplace key
-        _apiKey = GOOGLE_API_KEY;
-        
     }
     return self;
 }
@@ -61,6 +58,9 @@ NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/ap
 
 - (void)googlePlacesWithLongitude:(CGFloat)longitude latitude:(CGFloat)latitude distanceInMeters:(NSInteger)distanceInMeters withReturnBlock:(void (^)(NSArray *responseArray, NSError *error))returnBlock
 {
+    //@INFO: relplace key
+    _apiKey = GOOGLE_API_KEY;
+    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     //set API key and sesndor
@@ -95,7 +95,6 @@ NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/ap
             returnBlock(nil, error);
         
     }];
-    
 }
 
 

@@ -48,9 +48,6 @@
         
         //constraints
         [self setSubviewConstraints];
-        
-        //@TEST:
-//        self.backgroundColor = [UIColor lightGrayColor];
     }
     return self;
 }
@@ -64,9 +61,7 @@
 #pragma mark Private Methods - Layout
 
 - (void)addFrame
-{
-//    self.layer.cornerRadius = 2;
-    
+{    
     //set border color and width
     self.layer.borderColor = kMediumGrayColor.CGColor;
     self.layer.borderWidth = 1.0f;

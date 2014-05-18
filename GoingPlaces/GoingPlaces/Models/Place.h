@@ -22,13 +22,4 @@
 //images are added by user, and not with repository method
 @property (nonatomic, strong) NSMutableArray *images; //of PlaceImage
 
-/**
- *  Makes array of Place objects from Google Plases API response
- *
- *  @param responseArray Google Plases API response
- *
- *  @return array of Place objects
- */
-+ (NSArray *)googlePlacesWithResponseArray:(NSArray *)responseArray;
-
 @end

@@ -17,8 +17,10 @@
 //place images data source
 #import "PlaceImagesDataSource.h"
 
+//resize ans scale image
 #import "UIImage+MMJResize.h"
 
+//styles
 #import "Styles.h"
 
 

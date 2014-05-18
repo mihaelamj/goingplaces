@@ -1,5 +1,5 @@
 //
-//  GPGooglePlacesHTTPClient.h
+//  GPPlacesHTTPClient.h
 //  GoingPlaces
 //
 //  Created by Mihaela Mihaljević Jakić on 17/05/14.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
 
-@interface GPGooglePlacesHTTPClient : AFHTTPSessionManager
+@interface GPPlacesHTTPClient : AFHTTPSessionManager
 
 /**
  *  Singleton method

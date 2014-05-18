@@ -46,7 +46,7 @@
         //add small distance label
         [self addSubview:self.distanceInfoLabel];
         
-        //set initial distance
+        //set initial distance and update label
         _distanceInMeters = 1000;
         [self updateDistanceInfoLabel:_distanceInMeters];
         
@@ -61,14 +61,14 @@
 
 - (void)setSubviewConstraints
 {
-    //label on top left, with left offset
+    //label on top left, with offset
     [self.distanceLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.mas_left).with.offset(kLeftRightOffset);
         make.top.equalTo(self.mas_top).with.offset(kTopOffset);
         make.height.greaterThanOrEqualTo(@(kLabelSliderHeight));
     }];
     
-    //slider on top, right to the label, with left offset
+    //slider on top, right to the label, with offset
     [self.distanceSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.distanceLabel.mas_right).with.offset(kLeftRightOffset);
         make.top.equalTo(self.distanceLabel.mas_top);
@@ -126,7 +126,7 @@
         
         _mapView = [[MKMapView alloc] init];
         
-        //always show users location
+        //always show user location
         _mapView.showsUserLocation = YES;
         
         //prepare for Auto Layout

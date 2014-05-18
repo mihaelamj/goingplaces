@@ -9,10 +9,10 @@
 #import "GPGooglePlacesRepository.h"
 
 //HTTP client
-#import "GPGooglePlacesHTTPClient.h"
+#import "GPPlacesHTTPClient.h"
 
 //model
-#import "Place.h"
+#import "Place+GooglePlaces.h"
 
 @interface GPGooglePlacesRepository ()
 
@@ -23,7 +23,7 @@
 + (void)googlePlacesWithCoordinate:(CLLocationCoordinate2D)coordinate distanceInMeters:(NSInteger)distanceInMeters returnBlock:(void (^)(NSArray *googlePlacesArray, NSError *error))returnBlock
 {
     //create singelton http client
-    GPGooglePlacesHTTPClient *httpClient = [GPGooglePlacesHTTPClient client];
+    GPPlacesHTTPClient *httpClient = [GPPlacesHTTPClient client];
     
     [httpClient googlePlacesWithLongitude:coordinate.longitude latitude:coordinate.latitude distanceInMeters:distanceInMeters withReturnBlock:^(NSArray *responseArray, NSError *error) {
         
