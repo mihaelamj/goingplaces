@@ -13,8 +13,6 @@
 NSString * const kGooglePlacesAPIBaseURL = @"https://maps.googleapis.com/maps/api/place/";
 NSString * const kGooglePlacesRequestNearby = @"nearbysearch";
 
-NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/api/place/search/json?location=%f,%f&radius=%i&sensor=true&key=%@";
-
 @interface GPPlacesHTTPClient ()
 
 @property (nonatomic, strong) NSString *apiKey;
@@ -63,7 +61,7 @@ NSString * const kGooglePlacesAPIFullURL = @"https://maps.googleapis.com/maps/ap
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
-    //set API key and sesndor
+    //set API key and sesnor
     params[@"key"] = self.apiKey;
     params[@"sensor"] = @"true";
     
